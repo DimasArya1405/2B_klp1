@@ -11,11 +11,11 @@ class AttendeesController {
 
     public function index() {
         $attendees = $this->attendeesModel->getAllAttendees();
-        require_once '../app/views/user/index.php';
+        require_once '../app/views/attendees/index.php';
     }
 
     public function create() {
-        require_once '../app/views/user/create.php';
+        require_once '../app/views/attendees/create.php';
     }
 
     public function store() {
@@ -24,19 +24,19 @@ class AttendeesController {
         $nomor_telepon = $_POST['nomor_telepon'];
         $acara = $_POST['acara'];
         $this->attendeesModel->add($nama_peserta, $email, $nomor_telepon, $acara);
-        header('Location: /user/index');
+        header('Location: /attendees/index');
     }
     // Show the edit form with the user data
     public function edit($id) {
         $user = $this->attendeesModel->find($id); // Assume find() gets user by ID
-        require_once __DIR__ . '/../views/user/edit.php';
+        require_once __DIR__ . '/../views/attendees/edit.php';
     }
 
     // Process the update request
     public function update($id, $data) {
         $updated = $this->attendeesModel->update($id, $data);
         if ($updated) {
-            header("Location: /user/index"); // Redirect to user list
+            header("Location: /attendees/index"); // Redirect to user list
         } else {
             echo "Failed to update user.";
         }
@@ -46,7 +46,7 @@ class AttendeesController {
     public function delete($id) {
         $deleted = $this->attendeesModel->delete($id);
         if ($deleted) {
-            header("Location: /user/index"); // Redirect to user list
+            header("Location: /attendees/index"); // Redirect to user list
         } else {
             echo "Failed to delete user.";
         }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Edit Peserta</h2>
-    <form action="/user/update/<?php echo $user['id_peserta']; ?>" method="POST">
+    <form action="/attendees/update/<?php echo $user['id_peserta']; ?>" method="POST">
         <label for="nama_peserta">Nama Peserta:</label>
         <input type="text" id="nama_peserta" name="nama_peserta" value="<?php echo $user['nama_peserta']; ?>" required>
         <br>
@@ -26,6 +26,6 @@
 
         <button type="submit">Update</button>
     </form>
-    <a href="/user/index">Back to List</a>
+    <a href="/attendees/index">Back to List</a>
 </body>
 </html>
