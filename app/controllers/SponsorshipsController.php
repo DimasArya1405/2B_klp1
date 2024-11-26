@@ -1,42 +1,42 @@
 <?php
-// app/controllers/UserController.php
-require_once '../app/models/User.php';
+// app/controllers/SponsorshipsController.php
+require_once '../app/models/Sponsorships.php';
 
-class UserController {
-    private $userModel;
+class SponsorshipsController {
+    private $sponsorshipsModel;
 
     public function __construct() {
-        $this->userModel = new User();
+        $this->sponsorshipsModel = new Sponsorships();
     }
 
     public function index() {
-        $users = $this->userModel->getAllUsers();
-        require_once '../app/views/user/index.php';
+        $sponsorships = $this->sponsorshipsModel->getAllSponsorships();
+        require_once '../app/views/sponsorships/index.php';
 
     }
 
     public function create() {
-        require_once '../app/views/user/create.php';
+        require_once '../app/views/sponsorships/create.php';
     }
 
     public function store() {
         $nama_sponsor = $_POST['nama_sponsor'];
         $nilai_sponsor = $_POST['nilai_sponsor'];
         $jenis_sponsor = $_POST['jenis_sponsor'];
-        $this->userModel->add($nama_sponsor, $nilai_sponsor, $jenis_sponsor);
-        header('Location: /user/index');
+        $this->sponsorshipsModel->add($nama_sponsor, $nilai_sponsor, $jenis_sponsor);
+        header('Location: /sponsorships/index');
     }
     // Show the edit form with the user data
     public function edit($id) {
-        $user = $this->userModel->find($id); // Assume find() gets user by ID
-        require_once __DIR__ . '/../views/user/edit.php';
+        $sponsorships = $this->sponsorshipsModel->find($id); // Assume find() gets user by ID
+        require_once __DIR__ . '/../views/sponsorships/edit.php';
     }
 
     // Process the update request
     public function update($id, $data) {
-        $updated = $this->userModel->update($id, $data);
+        $updated = $this->sponsorshipsModel->update($id, $data);
         if ($updated) {
-            header("Location: /user/index"); // Redirect to user list
+            header("Location: /sponsorships/index"); // Redirect to user list
         } else {
             echo "Failed to update user.";
         }
@@ -44,9 +44,9 @@ class UserController {
 
     // Process delete request
     public function delete($id) {
-        $deleted = $this->userModel->delete($id);
+        $deleted = $this->sponsorshipsModel->delete($id);
         if ($deleted) {
-            header("Location: /user/index"); // Redirect to user list
+            header("Location: /sponsorships/index"); // Redirect to user list
         } else {
             echo "Failed to delete user.";
         }

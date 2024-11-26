@@ -1,6 +1,6 @@
 <!-- app/views/user/create.php -->
 <h2>Tambah Pengguna Baru</h2>
-<form action="/user/store" method="POST">
+<form action="/sponsorships/store" method="POST">
     <label for="nama_sponsor">Nama Sponsor:</label>
     <input type="text" name="nama_sponsor" id="nama_sponsor" required>
     

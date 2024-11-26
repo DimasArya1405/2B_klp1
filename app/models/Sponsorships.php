@@ -1,15 +1,15 @@
 <?php
-// app/models/User.php
+// app/models/Sponsorships.php
 require_once '../config/database.php';
 
-class User {
+class Sponsorships {
     private $db;
 
     public function __construct() {
         $this->db = (new Database())->connect();
     }
 
-    public function getAllUsers() {
+    public function getAllSponsorships() {
         $query = $this->db->query("SELECT * FROM sponsorships");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
