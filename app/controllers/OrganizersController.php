@@ -23,18 +23,18 @@ class OrganizersController {
         $nama_penyelenggara = $_POST['nama_penyelenggara'];
         $kontak = $_POST['kontak'];
         $email = $_POST['email'];
-        $this->userorganizers->add($name, $kontak, $email);
+        $this->organizersModel->add($nama_penyelenggara, $kontak, $email);
         header('Location: /organizers/index');
     }
     // Show the edit form with the user data
     public function edit($id) {
-        $organizers = $this->userorganizers->find($id); // Assume find() gets user by ID
+        $organizers = $this->organizersModel->find($id); // Assume find() gets user by ID
         require_once __DIR__ . '/../views/organizers/edit.php';
     }
 
     // Process the update request
     public function update($id, $data) {
-        $updated = $this->userorganizers->update($id, $data);
+        $updated = $this->organizersModel->update($id, $data);
         if ($updated) {
             header("Location: /organizers/index"); // Redirect to user list
         } else {
@@ -44,7 +44,7 @@ class OrganizersController {
 
     // Process delete request
     public function delete($id) {
-        $deleted = $this->userorganizers->delete($id);
+        $deleted = $this->organizersModel->delete($id);
         if ($deleted) {
             header("Location: /organizers/index"); // Redirect to user list
         } else {

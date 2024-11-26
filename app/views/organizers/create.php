@@ -1,8 +1,8 @@
 <!-- app/views/user/create.php -->
-<h2>Tambah Pengguna Baru</h2>
-<form action="/user/store" method="POST">
-    <label for="name">Nama Penyelenggara:</label>
-    <input type="text" name="name" id="name" required>
+<h2>Tambah Organizers Baru</h2>
+<form action="/organizers/store" method="POST">
+    <label for="nama_penyelenggara">Nama Penyelenggara:</label>
+    <input type="text" name="nama_penyelenggara" id="nama_penyelenggara" required>
     <label for="kontak">kontak:</label>
     <input type="kontak" name="kontak" id="kontak" required>
     <label for="email">Email:</label>

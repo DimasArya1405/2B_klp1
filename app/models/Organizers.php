@@ -31,7 +31,7 @@ class organizers {
 
     // Update user data by ID
     public function update($id, $data) {
-        $query = "UPDATE organizers SET name = :name, email = :email WHERE id = :id";
+        $query = "UPDATE organizers SET nama_penyelenggara = :nama_penyelenggara, kontak = :kontak , email = :email WHERE id_nama_penyelenggara = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':nama_penyelenggara', $data['nama_penyelenggara']);
         $stmt->bindParam(':kontak', $data['kontak']);
