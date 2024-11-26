@@ -1,18 +1,17 @@
 <?php
 // app/controllers/UserController.php
-require_once '../app/models/User.php';
+require_once '../app/models/Attendees.php';
 
-class UserController {
-    private $userModel;
+class AttendeesController {
+    private $attendeesModel;
 
     public function __construct() {
-        $this->userModel = new User();
+        $this->attendeesModel = new Attendees();
     }
 
     public function index() {
-        $users = $this->userModel->getAllUsers();
+        $attendees = $this->attendeesModel->getAllAttendees();
         require_once '../app/views/user/index.php';
-
     }
 
     public function create() {
@@ -24,18 +23,18 @@ class UserController {
         $email = $_POST['email'];
         $nomor_telepon = $_POST['nomor_telepon'];
         $acara = $_POST['acara'];
-        $this->userModel->add($name, $email, $nomor_telepon, $acara);
+        $this->attendeesModel->add($nama_peserta, $email, $nomor_telepon, $acara);
         header('Location: /user/index');
     }
     // Show the edit form with the user data
     public function edit($id) {
-        $user = $this->userModel->find($id); // Assume find() gets user by ID
+        $user = $this->attendeesModel->find($id); // Assume find() gets user by ID
         require_once __DIR__ . '/../views/user/edit.php';
     }
 
     // Process the update request
     public function update($id, $data) {
-        $updated = $this->userModel->update($id, $data);
+        $updated = $this->attendeesModel->update($id, $data);
         if ($updated) {
             header("Location: /user/index"); // Redirect to user list
         } else {
@@ -45,7 +44,7 @@ class UserController {
 
     // Process delete request
     public function delete($id) {
-        $deleted = $this->userModel->delete($id);
+        $deleted = $this->attendeesModel->delete($id);
         if ($deleted) {
             header("Location: /user/index"); // Redirect to user list
         } else {

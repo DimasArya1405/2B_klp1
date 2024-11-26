@@ -8,8 +8,8 @@
 <body>
     <h2>Edit Peserta</h2>
     <form action="/user/update/<?php echo $user['id_peserta']; ?>" method="POST">
-        <label for="name">Nama Peserta:</label>
-        <input type="text" id="name" name="name" value="<?php echo $user['nama_peserta']; ?>" required>
+        <label for="nama_peserta">Nama Peserta:</label>
+        <input type="text" id="nama_peserta" name="nama_peserta" value="<?php echo $user['nama_peserta']; ?>" required>
         <br>
 
         <label for="email">Email:</label>

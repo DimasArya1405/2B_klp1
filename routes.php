@@ -1,9 +1,9 @@
 <?php
 // routes.php
 
-require_once 'app/controllers/UserController.php';
+require_once 'app/controllers/AttendeesController.php';
 
-$controller = new UserController();
+$controller = new AttendeesController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -26,3 +26,4 @@ if ($url == '/user/index' || $url == '/') {
     http_response_code(404);
     echo "404 Not Found";
 }
+
