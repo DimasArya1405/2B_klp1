@@ -7,9 +7,12 @@
 </head>
 <body>
     <h2>Edit User</h2>
-    <form action="/user/update/<?php echo $user['id']; ?>" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>" required>
+    <form action="/user/update/<?php echo $user['id_nama_penyelenggara']; ?>" method="POST">
+        <label for="nama_penyelenggara">Nama Penyelenggara:</label>
+        <input type="text" id="nama_penyelenggara" name="nama_penyelenggara" value="<?php echo $user['nama_penyelenggara']; ?>" required>
+        <br>
+        <label for="kontak">kontak:</label>
+        <input type="text" id="kontak" name="kontak" value="<?php echo $user['kontak']; ?>" required>
         <br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required>

@@ -2,14 +2,14 @@
 // app/models/User.php
 require_once '../config/database.php';
 
-class User {
+class organizers {
     private $db;
 
     public function __construct() {
         $this->db = (new Database())->connect();
     }
 
-    public function getAllUsers() {
+    public function getAllorganizers() {
         $query = $this->db->query("SELECT * FROM organizers");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -31,7 +31,7 @@ class User {
 
     // Update user data by ID
     public function update($id, $data) {
-        $query = "UPDATE users SET name = :name, email = :email WHERE id = :id";
+        $query = "UPDATE organizers SET name = :name, email = :email WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':nama_penyelenggara', $data['nama_penyelenggara']);
         $stmt->bindParam(':kontak', $data['kontak']);
