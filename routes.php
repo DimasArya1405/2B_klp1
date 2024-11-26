@@ -3,25 +3,25 @@
 
 require_once 'app/controllers/AttendeesController.php';
 
-$controller = new AttendeesController();
+$attendeesController = new AttendeesController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($url == '/attendees/index' || $url == '/') {
-    $controller->index();
+    $attendeesController->index();
 } elseif ($url == '/attendees/create' && $requestMethod == 'GET') {
-    $controller->create();
+    $attendeesController->create();
 } elseif ($url == '/attendees/store' && $requestMethod == 'POST') {
-    $controller->store();
+    $attendeesController->store();
 } elseif (preg_match('/\/attendees\/edit\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $userId = $matches[1];
-    $controller->edit($userId);
+    $attendeesController->edit($userId);
 } elseif (preg_match('/\/attendees\/update\/(\d+)/', $url, $matches) && $requestMethod == 'POST') {
     $userId = $matches[1];
-    $controller->update($userId, $_POST);
+    $attendeesController->update($userId, $_POST);
 } elseif (preg_match('/\/attendees\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $userId = $matches[1];
-    $controller->delete($userId);
+    $attendeesController->delete($userId);
 } else {
     http_response_code(404);
     echo "404 Not Found";
