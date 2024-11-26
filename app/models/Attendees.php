@@ -2,14 +2,14 @@
 // app/models/User.php
 require_once '../config/database.php';
 
-class User {
+class Attendees {
     private $db;
 
     public function __construct() {
         $this->db = (new Database())->connect();
     }
 
-    public function getAllUsers() {
+    public function getAllAttendees() {
         $query = $this->db->query("SELECT * FROM attendees");
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -44,7 +44,7 @@ class User {
 
     // Delete user by ID
     public function delete($id) {
-        $query = "DELETE FROM attendees WHERE id = :id";
+        $query = "DELETE FROM attendees WHERE id_peserta = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();

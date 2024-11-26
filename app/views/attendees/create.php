@@ -1,6 +1,6 @@
 <!-- app/views/user/create.php -->
 <h2>Tambah Peserta Baru</h2>
-<form action="/user/store" method="POST">
+<form action="/attendees/store" method="POST">
 
     <label for="name">Nama Peserta:</label>
     <input type="text" name="nama_peserta" id="nama_peserta" required>
