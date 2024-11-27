@@ -1,4 +1,6 @@
 <!-- app/views/user/create.php -->
+<?php require_once '../public/header.php'; ?>
+<div class="ml-80 py-5 px-5">
 <h2>Tambah Acara Baru</h2>
 <form action="/events/store" method="POST">
 
@@ -17,3 +19,6 @@
     
     <button type="submit">Simpan</button>
 </form>
+<?php require_once '../public/navbar.php'; ?>
+
+<?php require_once '../public/footer.php'; ?>
