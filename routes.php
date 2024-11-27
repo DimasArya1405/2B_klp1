@@ -2,12 +2,16 @@
 // routes.php
 
 require_once 'app/controllers/EventsController.php';
+require_once 'app/controllers/HomeController.php';
 
 $eventscontroller = new EventsController();
+$homecontroller = new HomeController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-if ($url == '/events/index' || $url == '/') {
+if ($url == '/home' || $url == '/'){
+    $homecontroller->index();
+}elseif ($url == '/events/index') {
     $eventscontroller->index();
 } elseif ($url == '/events/create' && $requestMethod == 'GET') {
     $eventscontroller->create();
