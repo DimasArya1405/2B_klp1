@@ -2,12 +2,18 @@
 // routes.php
 
 require_once 'app/controllers/AttendeesController.php';
+require_once 'app/controllers/HomeController.php';
 
 $attendeesController = new AttendeesController();
+$homeController = new HomeController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-if ($url == '/attendees/index' || $url == '/') {
+if ($url == '/home' || $url == '/'){
+    $homeController->index();
+}
+
+elseif($url == '/attendees/index' ) {
     $attendeesController->index();
 } elseif ($url == '/attendees/create' && $requestMethod == 'GET') {
     $attendeesController->create();
