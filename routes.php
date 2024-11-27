@@ -1,11 +1,10 @@
 <?php
 // routes.php
 
+
 require_once 'app/controllers/EventsController.php';
-require_once 'app/controllers/HomeController.php';
 
 $eventscontroller = new EventsController();
-$homecontroller = new HomeController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -26,7 +25,9 @@ if ($url == '/home' || $url == '/'){
 } elseif (preg_match('/\/events\/delete\/(\d+)/', $url, $matches) && $requestMethod == 'GET') {
     $userId = $matches[1];
     $eventscontroller->delete($userId);
+
 } else {
     http_response_code(404);
     echo "404 Not Found";
 }
+
