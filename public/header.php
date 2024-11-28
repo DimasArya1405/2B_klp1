@@ -43,5 +43,5 @@
     </style>
 </head>
 
-<body class=" bg-purple-100">
+<body class="bg-purple-100">
 

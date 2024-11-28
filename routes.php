@@ -9,6 +9,7 @@ require_once 'app/controllers/AttendeesController.php';
 require_once 'app/controllers/HomeController.php';
 
 
+
 $organizerscontroller = new OrganizersController();
 $sponsorshipsController = new SponsorshipsController();
 $eventscontroller = new EventsController();
@@ -17,6 +18,8 @@ $homeController = new HomeController();
 
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
+
+
 
 if ($url == '/home' || $url == '/'){
     $homecontroller->index();
@@ -40,6 +43,7 @@ if ($url == '/home' || $url == '/'){
   
   
 } elseif ($url == '/sponsorships/index') {
+
     $sponsorshipsController->index();
 } elseif ($url == '/sponsorships/create' && $requestMethod == 'GET') {
     $sponsorshipsController->create();
