@@ -1,0 +1,1 @@
+<div class=" bg-purple-400 w-full h-36 text-center"></div>

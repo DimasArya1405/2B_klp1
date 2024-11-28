@@ -2,12 +2,17 @@
 // routes.php
 
 require_once 'app/controllers/OrganizersController.php';
+require_once 'app/controllers/HomeController.php';
 
 $organizerscontroller = new OrganizersController();
+$homeController = new HomeController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-if ($url == '/organizers/index' || $url == '/') {
+if ($url == '/home' || $url == '/') {
+    $homeController->index();
+}
+elseif ($url == '/organizers/index') {
     $organizerscontroller->index();
 } elseif ($url == '/organizers/create' && $requestMethod == 'GET') {
     $organizerscontroller->create();
