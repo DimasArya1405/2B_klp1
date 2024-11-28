@@ -2,12 +2,19 @@
 // routes.php
 
 require_once 'app/controllers/SponsorshipsController.php';
+require_once 'app/controllers/HomeController.php';
 
 $sponsorshipsController = new SponsorshipsController();
+$homeController = new SponsorshipsController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-if ($url == '/sponsorships/index' || $url == '/') {
+if ($url == '/home' || $url == '/') {
+    $homeController->index();
+} 
+
+elseif
+($url == '/sponsorships/index' ) {
     $sponsorshipsController->index();
 } elseif ($url == '/sponsorships/create' && $requestMethod == 'GET') {
     $sponsorshipsController->create();
