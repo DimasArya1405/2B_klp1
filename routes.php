@@ -2,20 +2,16 @@
 // routes.php
 
 
+require_once 'app/controllers/OrganizersController.php';
 
-require_once 'app/controllers/EventsController.php';
-require_once 'app/controllers/HomeController.php';
-
-$eventscontroller = new EventsController();
-$homeController = new HomeController();
-
+$organizerscontroller = new OrganizersController();
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($url == '/home' || $url == '/') {
     $homeController->index();
-
-}elseif ($url == '/organizers/index' || $url == '/') {
+}
+elseif ($url == '/organizers/index') {
     $organizerscontroller->index();
 } elseif ($url == '/organizers/create' && $requestMethod == 'GET') {
     $organizerscontroller->create();
@@ -32,7 +28,8 @@ if ($url == '/home' || $url == '/') {
     $organizerscontroller->delete($userId);
   
   
-} elseif ($url == '/sponsorships/index' || $url == '/') {
+} elseif ($url == '/sponsorships/index') {
+
     $sponsorshipsController->index();
 } elseif ($url == '/sponsorships/create' && $requestMethod == 'GET') {
     $sponsorshipsController->create();
@@ -50,7 +47,7 @@ if ($url == '/home' || $url == '/') {
   
   
   
-} elseif ($url == '/events/index' || $url == '/') {
+} elseif ($url == '/events/index') {
     $eventscontroller->index();
 } elseif ($url == '/events/create' && $requestMethod == 'GET') {
     $eventscontroller->create();
@@ -67,7 +64,8 @@ if ($url == '/home' || $url == '/') {
     $eventscontroller->delete($userId);
   
 
-}elseif ($url == '/attendees/index' || $url == '/') {
+
+}elseif ($url == '/attendees/index) {
     $attendeesController->index();
 } elseif ($url == '/attendees/create' && $requestMethod == 'GET') {
     $attendeesController->create();

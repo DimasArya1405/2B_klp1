@@ -42,5 +42,7 @@
   <a href="../hero/login.php" class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 crusor-pointer text-white hover:bg-green-500">
     <i class="bi bi-box-arrow-left px-2 py-1"></i>
     <h1 class="font-bold text-[18px] ml-3">Log-out</h1>
-  </a>
+
+
+  </a>
 </div>
