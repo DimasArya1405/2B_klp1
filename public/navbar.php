@@ -43,6 +43,6 @@
     <i class="bi bi-box-arrow-left px-2 py-1"></i>
     <h1 class="font-bold text-[18px] ml-3">Log-out</h1>
 
+
   </a>
 </div>
-

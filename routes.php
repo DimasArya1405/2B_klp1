@@ -1,13 +1,11 @@
 <?php
 // routes.php
 
-
-require_once 'app/controllers/OrganizersController.php';
 require_once 'app/controllers/SponsorshipsController.php';
 require_once 'app/controllers/EventsController.php';
 require_once 'app/controllers/AttendeesController.php';
 require_once 'app/controllers/HomeController.php';
-
+require_once 'app/controllers/OrganizersController.php';
 
 
 $organizerscontroller = new OrganizersController();
@@ -18,7 +16,6 @@ $homeController = new HomeController();
 
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-
 
 
 if ($url == '/home' || $url == '/'){
