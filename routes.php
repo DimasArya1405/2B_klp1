@@ -2,16 +2,20 @@
 // routes.php
 
 
-require_once 'app/controllers/OrganizersController.php';
 
-$organizerscontroller = new OrganizersController();
+require_once 'app/controllers/EventsController.php';
+require_once 'app/controllers/HomeController.php';
+
+$eventscontroller = new EventsController();
+$homeController = new HomeController();
+
 $url = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($url == '/home' || $url == '/') {
     $homeController->index();
-}
-elseif ($url == '/organizers/index') {
+
+}elseif ($url == '/organizers/index' || $url == '/') {
     $organizerscontroller->index();
 } elseif ($url == '/organizers/create' && $requestMethod == 'GET') {
     $organizerscontroller->create();
@@ -83,5 +87,3 @@ elseif ($url == '/organizers/index') {
     http_response_code(404);
     echo "404 Not Found";
 }
-
-

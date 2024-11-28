@@ -29,7 +29,7 @@ class OrganizersController {
     // Show the edit form with the user data
     public function edit($id) {
         $organizers = $this->organizersModel->find($id); // Assume find() gets user by ID
-        require_once __DIR__ . '/../views/organizers/edit.php';
+        require_once _DIR_ . '/../views/organizers/edit.php';
     }
 
     // Process the update request
